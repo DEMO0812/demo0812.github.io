@@ -1,0 +1,117 @@
+<div ng-controller="chiTietController">
+
+    <div class="container mt-5 " style="background-color: rgba(222, 223, 223, 0.695);">
+        <div class="container-fluid mt-5" style="padding-top: 3%;">
+            <a href="index.html"> <img class="mb-2" src="img/chevron_left_26px.png" alt="Home" style="width:25px"></a> / Bộ sưu tập Y2010 Originals
+        </div>
+    </div>
+
+    <div class="container mt-1">
+        <div class="row container-fluid ">
+            <div class="col-4">
+                <div class="card">
+                    <a href=""><img href="" class="card-img-top" src="{{oneProduct.related[0]}}" alt="Card image" style="width:100%"></a>
+
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="mt-2">
+                    <h5>{{oneProduct.name}}</h5>
+                    <p>Chất liệu: Cotton Compact 2S</p>
+                    <p>Áo Thun Form Rộng / Mã số: 0021828</p>
+                    <br>
+                    <h5 class="text-danger">{{oneProduct.price}} đ</h5>
+                </div>
+
+                <div class="mt-4">
+                    <table class="table" id="table">
+
+                        <tbody class="text-center">
+                            <hr>
+                            <tr>
+                                <td>Đen, S</td>
+                                <td><a class="atb" href="#">35 CH còn</a></td>
+                                <td><button ng-click="addToCart(oneProduct)" type="button" class="btn btn-outline-light text-danger">Chọn mua</button></td>
+                            </tr>
+                            <tr>
+                                <td>Đen, M</td>
+                                <td><a class="atb" href="#">35 CH còn</a></td>
+                                <td><button ng-click="addToCart(oneProduct)" type="button" class="btn btn-outline-light text-danger">Chọn mua</button></td>
+                            </tr>
+                            <tr>
+                                <td>Đen, XL</td>
+                                <td><a class="atb" href="#">35 CH còn</a></td>
+                                <td><button ng-click="addToCart(oneProduct)" type="button" class="btn btn-outline-light text-danger">Chọn mua</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row mt-5">
+                    <p> Hướng dẫn chọn size</p>
+                    <div class="col-5">
+                        <form action="/action_page.php">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Cân nặng" name="email">
+                                <span class="input-group-text">Kg</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-5">
+                        <form action="/action_page.php">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Chiều cao" name="email">
+                                <span class="input-group-text">Cm</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-secondary">Tìm</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ">
+                <h5>Mô tả sản phẩm</h5>
+
+
+                <p>{{oneProduct.long_description}}</p>
+
+
+                <!-- <p>
+                    Áo Thun Cổ Tròn 12VAHDT Long Vận Thiên Đô Ver5
+                    <br>Chất liệu: Cotton Compact 2C
+                    <br>Thành phần: 100% Cotton
+                    <br>- Thân thiện
+                    <br>- Thấm hút thoát ẩm
+                    <br>- Mềm mại
+                    <br>- Kiểm soát mùi
+                    <br>- Điều hòa nhiệt
+                    <br>+ Họa tiết in dẻo + in trame
+                    <br>- HDSD:
+                    <br>+ Nên giặt chung với sản phẩm cùng màu
+                    <br>+ Không dùng thuốc tẩy hoặc xà phòng có tính tẩy mạnh
+                    <br>+ Nên phơi trong bóng râm để giữ sp bền màu
+                </p> -->
+            </div>
+        </div>
+    </div>
+
+    <div class=" container mt-1">
+        <div class="container-fluid row mt-4">
+            <div class="col-6">
+                <a href=""><img href="" class="card-img-top" src="img/ct2.jpg" alt="Card image" style="width:100%"></a>
+            </div>
+            <div class="col-6">
+                <a href=""><img href="" class="card-img-top" src="img/ct3.jpg" alt="Card image" style="width:100%"></a>
+            </div>
+        </div>
+        <div class="container-fluid row mt-4">
+            <div class="col-6">
+                <a href=""><img href="" class="card-img-top" src="img/ct4.jpg" alt="Card image" style="width:100%"></a>
+            </div>
+            <div class="col-6">
+                <a href=""><img href="" class="card-img-top" src="img/ct5.jpg" alt="Card image" style="width:100%"></a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div ng-controller="loginController">
+    <div class="container mt-5 " style="background-color: rgba(222, 223, 223, 0.695);">
+        <div class="container-fluid mt-5" style="padding-top: 3%;">
+            <a href="#"> <img class="mb-2" src="img/home_25px.png" alt="Home" style="width:15px"></a> / Đăng nhập
+        </div>
+    </div>
+
+    <div class="container row">
+        <div class="col-4"></div>
+        <div class="col-6 " style="margin-top: 7%; margin-bottom: 9%;">
+            <form>
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input ng-model="email" type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input ng-model="password" type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+
+                <div class="row">
+                    <button ng-click="onLogin()" type="button" class="btn btn-primary col-2 ms-3 ">
+                        <div ng-if="loading" class="spinner-border text-danger " role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                          Submit
+                    </button>
+
+                    <button ng-click="onDangKy()" ng-controller="registerController" type="submit" class="btn btn-outline-dark col-2 ms-3">
+                        Register
+                    </button>
+
+
+                    <!-- <button class="btn btn-info col-2 ">
+                        <div id="g_id_onload" data-client_id="389052684208-5im9v5rhnclksoslufvhbikbe1kbessb.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://127.0.0.1:5501/#" data-nonce="" data-itp_support="true">
+                        </div>
+a
+                        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left">
+                        </div>
+                    </button> -->
+
+                </div>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

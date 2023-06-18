@@ -1,0 +1,135 @@
+<div ng-controller="cartController">
+
+
+    <div class="container mt-5 " style="background-color: rgba(222, 223, 223, 0.695);">
+        <div class="container-fluid mt-5" style="padding-top: 3%;">
+            <a href="index.html"> <img class="mb-2" src="img/home_25px.png" alt="Home" style="width:15px"></a> / Thông tin giỏ hàng của bạn
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-6 pe-2">
+                <h5>Chi tiết đơn hàng</h5>
+                <hr>
+                <div class="row">
+
+                    <!--                           giỏ hàng           -->
+                    <p>Số sản phẩm có trong giỏ hàng là: <b>{{cart.length}}</b></p>
+                    <table class="table" style="color:#111;" ng-repeat="item in cart">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2" style="width:100px;padding-left:0; padding-right:0;">
+
+
+                                    <img src="{{item.related[0]}}" class="img-fluid rounded-3 " alt="Shopping item">
+                                    <button ng-click="removeItem(item)" type="button" class="btn btn-light mt-1">
+                                            <img src="img/Delete_16px.png" alt="">
+                                            Xóa
+                                        </button>
+                                </td>
+                                <td style="padding-left:4%; padding-right:0;">
+                                    <p class="mb-1">
+                                        <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0" href="http://127.0.0.1:5501/YAME/index.html#!/product/{{item._id}}/detail" style="font-size:25px;">
+                                            {{item.name}}
+                                        </a>
+                                    </p>
+                                    <p class="mb-0">
+                                        Đen, S / <span class="text-black">đ {{item.price}}</span>
+                                    </p>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left:0; padding-right:0;">
+                                    <div>
+                                        <form>
+                                            <div class="d-flex">
+                                                <div class="w-100 flex-fill pr-2">
+                                                    <input type="number" class="form-control" min="1" name="" ng-change="onChangeQuantity(item._id)" ng-model="item.quantity">
+                                                </div>
+                                                <div class="flex-fill mt-1 ms-2 me-2">
+                                                    <button type="submit" class="btn btn-outline-dark btn-sm">
+                                                            Update
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    = <span>đ</span> <b>{{item.price *item.quantity}}</b>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+                    <tr>
+                        <td>
+                            <div class="ms-4">
+                                <h5> Tổng: <b>{{getTotal()}}</b> </h5>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                </div>
+            </div>
+            <div class="col-6 ps-5">
+                <nav class="sticky-top">
+                    <form id="formPlaceOrder" name="myForm">
+                        <div class="form-group mt-2">
+                            <label for="name">Tên</label>
+                            <input ng-model="info.name" ng-required="true" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[a-zA-Z ]*$/" type="text" class="required form-control" id="name" name="name" placeholder="Tên người nhận">
+                            <div ng-if="myForm.name.$touched && myForm.name.$invalid">
+                                <span ng-if="myForm.name.$error.required">Name is required</span>
+                                <span ng-if="myForm.name.$error.minlength">Name is to short</span>
+                                <span ng-if="myForm.name.$error.maxlength">Name is to long</span>
+                                <span ng-if="myForm.name.$error.pattern">Name is invalid</span>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="phone">Điện thoại liên lạc</label>
+                            <input ng-model="info.phone" ng-required="true" ng-pattern="/^[0-9]{10}$/" type="text" class="required form-control" id="phone" name="phone" placeholder="Số điện thoại">
+                            <div ng-if="myForm.phone.$touched && myForm.phone.$invalid">
+                                <span ng-if="myForm.phone.$error.required">phone is required</span>
+                                <span ng-if="myForm.phone.$error.pattern">phone is invalid</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="radio mt-2">
+                                <label>
+                                        <input type="radio" name="chosePickupAddress"  value="shipToHome">Nhận hàng tại nhà/công ty/bưu điện
+                                    </label>
+                            </div>
+
+                        </div>
+                        <div class="form-group mt-2" id="pnlAddress">
+                            <input ng-model="info.address" ng-required="true" ng-minlength="15" type="text" class="required form-control" id="address" name="address" placeholder="Địa chỉ nhận hàng">
+                            <div ng-if="myForm.address.$touched && myForm.address.$invalid">
+                                <span ng-if="myForm.address.$error.required">Address is required</span>
+                                <span ng-if="myForm.address.$error.minlength">Address is to short</span>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="email">Email:</label>
+                            <input ng-model="info.email" ng-required="true" ng-pattern="/^[a-z]{1,}ps[0-9]{5}@fpt.edu.vn$/" type="email" class="required form-control" id="email" name="email" placeholder="Nhập mail">
+                            <div ng-if="myForm.email.$touched && myForm.email.$invalid">
+                                <span ng-if="myForm.email.$error.required">Email is required</span>
+                                <span ng-if="myForm.email.$error.pattern">Email is invalid</span>
+                            </div>
+                        </div>
+
+                    </form>
+                    <button ng-disabled="myForm.$invalid" ng-click="checkout()" class=" btn btn-info fw  mt-3" style="width:100%; ">Đặt hàng</button>
+                    <hr>
+                    <a href="#" class="btn btn-warning fw" style="width:100%;">Cần sản phẩm khác? Tiếp tục mua hàng</a>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>

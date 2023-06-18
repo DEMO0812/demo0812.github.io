@@ -1,0 +1,96 @@
+<div ng-controller="y2010Controller">
+
+    <div class="container mt-5 " style="background-color: rgba(222, 223, 223, 0.695);">
+        <div class="container-fluid mt-5" style="padding-top: 3%;">
+            <a href="index.html"> <img class="mb-2" src="img/home_25px.png" alt="Home" style="width:25px"></a> / Bộ sưu tập Y2010 Originals
+        </div>
+    </div>
+
+    <div class="container mt-5 ">
+        <div ng-repeat="row in products">
+            <div class="row container-fluid mt-3">
+                <div class="col-3" ng-repeat="card in row">
+                    <div class="card">
+                        <a href="http://127.0.0.1:5501/YAME/index.html#!/product/{{card._id}}/detail">
+                            <img class="card-img-top" src="{{card.related[0]}}" alt="anh" style="width: 100%;">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">đ {{card.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- <div class="container  ">
+    <div class="row container-fluid mt-3">
+        <div class="col-3">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y5.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text"> 211</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y6.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text">183</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y7.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text">425</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y8.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text">304</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+<div class="container  ">
+    <div class="row container-fluid mt-3">
+        <div class="col-6">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y10.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text"> 265</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <a href=""><img href="" class="card-img-top" src="img/y11.jpg" alt="Card image" style="width:100%"></a>
+                <div class="card-body">
+                    <p class="card-text">332</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ul class="pagination justify-content-center mt-5">
+    <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+</ul>
+</div>

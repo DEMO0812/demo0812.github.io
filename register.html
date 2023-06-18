@@ -1,0 +1,56 @@
+<div ng-controller="registerController">
+    <div class="container mt-5 " style="background-color: rgba(222, 223, 223, 0.695);">
+        <div class="container-fluid mt-5" style="padding-top: 3%;">
+            <a href="#"> <img class="mb-2" src="img/home_25px.png" alt="Home" style="width:15px"></a> / Đăng Ký
+        </div>
+    </div>
+
+
+    <div class="row mt-3 ">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form name="myForm">
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="name"> Name</label>
+                    <input ng-model="name" ng-required="true" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[a-zA-Z ]*$/" name="name" type="text" id="name" class="form-control " placeholder=" Name" />
+                    <div ng-if="myForm.name.$touched && myForm.name.$invalid">
+                        <span ng-if="myForm.name.$error.required">Name is required</span>
+                        <span ng-if="myForm.name.$error.minlength">Name is to short</span>
+                        <span ng-if="myForm.name.$error.maxlength">Name is to long</span>
+                        <span ng-if="myForm.name.$error.pattern">Name is invalid</span>
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="email"> Email</label>
+                    <input ng-model="email" ng-required="true" ng-pattern="/^[a-z]{1,}ps[0-9]{5}@fpt.edu.vn$/" name="email" type="email" id="email" class="form-control " placeholder="Enter email" />
+                    <div ng-if="myForm.email.$touched && myForm.email.$invalid">
+                        <span ng-if="myForm.email.$error.required">email is required</span>
+                        <span ng-if="myForm.email.$error.pattern">email is invalid</span>
+                    </div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="password"> Password</label>
+                    <input ng-model="password" ng-required="true" ng-pattern="/^[a-zA-Z0-9]{6,12}$/" name="password" type="password" id="password" class="form-control " placeholder="Enter password" />
+                    <div ng-if="myForm.password.$touched && myForm.password.$invalid">
+                        <span ng-if="myForm.password.$error.required">Password is required</span>
+                        <span ng-if="myForm.password.$error.pattern">Password is invalid</span>
+                    </div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="confirmPassword"> Confirm Password</label>
+                    <input ng-model="confirmPassword" ng-required="true" name="confirmPassword" type="password" id="confirmPassword" class="form-control " placeholder="Enter Confirm Password" />
+                    <div ng-if="myForm.confirmPassword.$touched ">
+                        <span ng-if=" myForm.password.$viewValue != myForm.confirmPassword.$viewValue">Password not match</span>
+                    </div>
+                </div>
+
+                <button ng-disabled="myForm.$invalid" type="submit" class="btn btn-primary"> Submit </button>
+
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
